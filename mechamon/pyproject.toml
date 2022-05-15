@@ -1,0 +1,38 @@
+[tool.briefcase]
+project_name = "Mekanik Corral"
+bundle = "com.thunstrom.mechamon"
+version = "0.0.1"
+url = "https://github.com/pathunstrom/game-mechamon"
+license = "Proprietary"
+author = 'Piper Thunstrom'
+author_email = "pathunstrom@gmail.com"
+
+[tool.briefcase.app.mechamon]
+formal_name = "Mekanik Corral"
+description = "Custom robot fighting meets monster collection."
+icon = "src/mechamon/resources/mechamon"
+sources = ['src/mechamon']
+requires = [
+    'ppb~=1.1',
+    'git+https://github.com/pathunstrom/splash-pathunstrom.git'
+]
+
+
+[tool.briefcase.app.mechamon.macOS]
+requires = [
+    'std-nslog==1.0.0'
+]
+
+[tool.briefcase.app.mechamon.linux]
+requires = []
+system_requires = []
+
+[tool.briefcase.app.mechamon.windows]
+requires = []
+
+# Mobile deployments
+[tool.briefcase.app.mechamon.iOS]
+supported = false
+
+[tool.briefcase.app.mechamon.android]
+supported = false
