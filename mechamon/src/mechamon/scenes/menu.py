@@ -15,6 +15,11 @@ def start_game():
     return ppb.events.StartScene(corral.Scene)
 
 
+def launch_settings():
+    from mechamon.scenes import settings
+    return ppb.events.StartScene(settings.Scene)
+
+
 class Button(ppb.RectangleSprite):
     image = ppb.Rectangle(*mechamon.BRAND_CONTRAST_COLOR, aspect_ratio=(BUTTON_WIDTH, BUTTON_HEIGHT))
     height = BUTTON_HEIGHT
@@ -31,7 +36,8 @@ class Button(ppb.RectangleSprite):
 
 buttons = [
     ("Start Game", start_game),
-    ("Quit", lambda :ppb.events.Quit())
+    ("Settings", launch_settings),
+    ("Quit", lambda:ppb.events.Quit())
 ]
 
 
@@ -40,10 +46,10 @@ class Scene(ppb.Scene):
 
     def __init__(self, **props):
         super().__init__(**props)
-        self.font = ppb.Font('mechamon/resources/fonts/Gladius.ttf', size=96)
+        self.font = ppb.Font(mechamon.TITLE_FONT, size=96)
         self.add(ppb.Sprite(
             image=ppb.Text("Mekanik Corral", font=self.font, color=mechamon.BRAND_FONT_COLOR),
-            size=3,
+            size=mechamon.TITLE_SIZE,
             position=ppb.Vector(-3.75, 6)
         ))
         button_top = 3
