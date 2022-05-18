@@ -19,6 +19,7 @@ document as we explore the possibilities.
    :caption: Contents:
 
    prototype/index
+   concerns/index
 
 
 Indices and tables
