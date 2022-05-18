@@ -14,7 +14,9 @@ except ImportError:
 import ppb
 from pathunstrom_splash import Splash
 
+from mechamon import controlsconf
 from mechamon.scenes import menu
+from mechamon.systems.controller import ControllerSystem
 
 
 def main():
@@ -37,4 +39,6 @@ def main():
     ppb.run(
         starting_scene=Splash(next_scene=menu.Scene),
         title='Mekanik Corral',
+        systems=[ControllerSystem],
+        inputs=controlsconf.inputs
     )

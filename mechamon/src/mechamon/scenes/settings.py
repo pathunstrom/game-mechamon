@@ -10,7 +10,7 @@ class Scene(ppb.Scene):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.font = ppb.Font(mechamon.TITLE_FONT, size=96)
+        self.font = ppb.Font(mechamon.TITLE_FONT, size=mechamon.TEXT_RENDER_SIZE)
         self.add(
             ppb.Sprite(
                 image=ppb.Text(
@@ -33,6 +33,5 @@ class Scene(ppb.Scene):
             )
         )
 
-    def on_key_released(self, event: ppb.events.KeyReleased, signal):
-        if event.key is keycodes.Escape:
-            signal(ppb.events.StopScene())
+    def on_quit_requested(self, event, signal):
+        signal(ppb.events.StopScene())

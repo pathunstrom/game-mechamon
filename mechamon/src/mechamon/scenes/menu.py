@@ -27,7 +27,7 @@ class Button(ppb.RectangleSprite):
     layer = BUTTON_LAYER
     event = lambda self: ppb.events.Quit()
 
-    def on_button_released(self, event: ppb.events.ButtonReleased, signal):
+    def on_interact_requested(self, event, signal):
         x_in_range = self.left <= event.position.x <= self.right
         y_in_range = self.bottom <= event.position.y <= self.top
         if x_in_range and y_in_range:
@@ -46,7 +46,7 @@ class Scene(ppb.Scene):
 
     def __init__(self, **props):
         super().__init__(**props)
-        self.font = ppb.Font(mechamon.TITLE_FONT, size=96)
+        self.font = ppb.Font(mechamon.TITLE_FONT, size=mechamon.TEXT_RENDER_SIZE)
         self.add(ppb.Sprite(
             image=ppb.Text("Mekanik Corral", font=self.font, color=mechamon.BRAND_FONT_COLOR),
             size=mechamon.TITLE_SIZE,

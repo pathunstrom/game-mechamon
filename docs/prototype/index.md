@@ -41,14 +41,16 @@ To turn into a strict checklist of requirements:
    2. Settings (DONE!)
    3. Quit (DONE!)
 2. Camp
-   1. Player
+   1. Player (DONE)
    2. AI Bot
    3. Game Quit Prompt
+      1. Quit with escape (DONE)
    4. Edit Menu
    5. Exit to Beach
    6. Interact Prompt
-      1. Key to the bot to customize
-      2. Key to exit to shift to Beach
+      1. Control Wired For Interaction (DONE)
+      2. Key to the bot to customize
+      3. Key to exit to shift to Beach
 3. The Beach
    1. Some terrain bits
    2. Player
