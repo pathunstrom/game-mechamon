@@ -1,6 +1,7 @@
 import ppb
 
-import mechamon
+import mechamon.constants as constants
+import mechamon.scenes as mechamon_scenes
 
 BUTTON_LAYER = 1
 TEXT_LAYER = 2
@@ -11,17 +12,17 @@ BUTTON_SPACING = 0.5
 
 
 def start_game():
-    from mechamon.scenes import corral
-    return ppb.events.StartScene(corral.Scene)
+    return ppb.events.StartScene(mechamon_scenes.corral.Scene)
 
 
 def launch_settings():
-    from mechamon.scenes import settings
-    return ppb.events.StartScene(settings.Scene)
+    return ppb.events.StartScene(mechamon_scenes.settings.Scene)
 
 
 class Button(ppb.RectangleSprite):
-    image = ppb.Rectangle(*mechamon.BRAND_CONTRAST_COLOR, aspect_ratio=(BUTTON_WIDTH, BUTTON_HEIGHT))
+    image = ppb.Rectangle(
+        *constants.BRAND_CONTRAST_COLOR, aspect_ratio=(BUTTON_WIDTH, BUTTON_HEIGHT)
+    )
     height = BUTTON_HEIGHT
     width = BUTTON_WIDTH
     layer = BUTTON_LAYER
@@ -37,7 +38,7 @@ class Button(ppb.RectangleSprite):
 buttons = [
     ("Start Game", start_game),
     ("Settings", launch_settings),
-    ("Quit", lambda:ppb.events.Quit())
+    ("Quit", lambda: ppb.events.Quit()),
 ]
 
 
@@ -46,19 +47,29 @@ class Scene(ppb.Scene):
 
     def __init__(self, **props):
         super().__init__(**props)
-        self.font = ppb.Font(mechamon.TITLE_FONT, size=mechamon.TEXT_RENDER_SIZE)
-        self.add(ppb.Sprite(
-            image=ppb.Text("Mekanik Corral", font=self.font, color=mechamon.BRAND_FONT_COLOR),
-            size=mechamon.TITLE_SIZE,
-            position=ppb.Vector(-3.75, 6)
-        ))
+        self.font = ppb.Font(constants.TITLE_FONT, size=constants.TEXT_RENDER_SIZE)
+        self.add(
+            ppb.Sprite(
+                image=ppb.Text(
+                    "Mekanik Corral", font=self.font, color=constants.BRAND_FONT_COLOR
+                ),
+                size=constants.TITLE_SIZE,
+                position=ppb.Vector(-3.75, 6),
+            )
+        )
         button_top = 3
         for button_text, event_function in buttons:
             button = Button(event=event_function)
             button.left = 0
             button.top = button_top
             button_top = button.bottom - BUTTON_SPACING
-            text = ppb.Sprite(image=ppb.Text(button_text, font=self.font, color=mechamon.BRAND_FONT_COLOR), layer=TEXT_LAYER, size=BUTTON_HEIGHT * 0.8)
+            text = ppb.Sprite(
+                image=ppb.Text(
+                    button_text, font=self.font, color=constants.BRAND_FONT_COLOR
+                ),
+                layer=TEXT_LAYER,
+                size=BUTTON_HEIGHT * 0.8,
+            )
             text.position = button.position
             self.add(button)
             self.add(text)
