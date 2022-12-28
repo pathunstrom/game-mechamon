@@ -1,11 +1,9 @@
 import ppb
 
-import mechamon.constants as constants
 import mechamon.mixins as mixins
-import mechamon.scenes.beach as beach
-import mechamon.utils as utils
 import mechamon.prefabs as prefabs
-
+import mechamon.utils as utils
+import mechamon.scenes.corral as corral
 
 INTERACTABLE = "interactable"
 
@@ -15,15 +13,13 @@ class PlayerCharacter(mixins.PlayerOverworldMovement, ppb.Sprite):
 
 
 class Scene(ppb.Scene):
-    background_color = (200, 75, 75)
+    background_color = 207, 174, 117
 
     def __init__(self, *args, **kwargs):
-        super(Scene, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.add(PlayerCharacter())
         self.add(
-            prefabs.interactable.Exit(
-                position=ppb.Vector(0, 5), text="Beach", next_scene=beach.Scene
-            ),
+            prefabs.interactable.Exit(text="Corral", next_scene=corral.Scene),
             tags=[INTERACTABLE],
         )
 

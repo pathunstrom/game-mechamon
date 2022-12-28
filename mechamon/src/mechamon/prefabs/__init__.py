@@ -1,0 +1,1 @@
+import mechamon.prefabs.interactable

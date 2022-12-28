@@ -47,11 +47,12 @@ class Scene(ppb.Scene):
 
     def __init__(self, **props):
         super().__init__(**props)
-        self.font = ppb.Font(constants.TITLE_FONT, size=constants.TEXT_RENDER_SIZE)
         self.add(
             ppb.Sprite(
                 image=ppb.Text(
-                    "Mekanik Corral", font=self.font, color=constants.BRAND_FONT_COLOR
+                    "Mekanik Corral",
+                    font=constants.TITLE_FONT,
+                    color=constants.BRAND_FONT_COLOR,
                 ),
                 size=constants.TITLE_SIZE,
                 position=ppb.Vector(-3.75, 6),
@@ -65,7 +66,9 @@ class Scene(ppb.Scene):
             button_top = button.bottom - BUTTON_SPACING
             text = ppb.Sprite(
                 image=ppb.Text(
-                    button_text, font=self.font, color=constants.BRAND_FONT_COLOR
+                    button_text,
+                    font=constants.TITLE_FONT,
+                    color=constants.BRAND_FONT_COLOR,
                 ),
                 layer=TEXT_LAYER,
                 size=BUTTON_HEIGHT * 0.8,

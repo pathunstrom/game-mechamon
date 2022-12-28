@@ -1,3 +1,6 @@
+import ppb
+
+
 __all__ = [
     "BRAND_FONT_COLOR",
     "BRAND_CONTRAST_COLOR",
@@ -14,11 +17,14 @@ __all__ = [
 BRAND_FONT_COLOR = (255, 255, 255)
 BRAND_CONTRAST_COLOR = (0, 0, 0)
 
-TITLE_FONT = "mechamon/resources/fonts/Gladius.ttf"
+TITLE_FONT_FILE = "mechamon/resources/fonts/Gladius.ttf"
 TITLE_SIZE = 3
 
 TEXT_SIZE = 1
 TEXT_RENDER_SIZE = 96
+
+TITLE_FONT = ppb.Font(TITLE_FONT_FILE, size=TEXT_RENDER_SIZE)
+TEXT_FONT = TITLE_FONT
 
 CONTROLS_VERTICAL = "vertical_move"
 CONTROLS_HORIZONTAL = "horizontal_move"

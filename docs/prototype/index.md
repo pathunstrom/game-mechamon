@@ -45,8 +45,9 @@ To turn into a strict checklist of requirements:
    2. AI Bot
    3. Game Quit Prompt
       1. Quit with escape (DONE)
+      2. Confirmation message
    4. Edit Menu
-   5. Exit to Beach
+   5. Exit to Beach (DONE)
    6. Interact Prompt
       1. Control Wired For Interaction (DONE)
       2. Key to the bot to customize
@@ -57,7 +58,7 @@ To turn into a strict checklist of requirements:
    3. Player bot - follows the player around.
    4. Wild bots
       1. For now, use prompt system to start battles
-   5. Exit to Camp
+   5. Exit to Camp (DONE)
 4. Enter Battle
    1. Show enemy bot
    2. Show player bot

@@ -9,11 +9,10 @@ class Scene(ppb.Scene):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.font = ppb.Font(constants.TITLE_FONT, size=constants.TEXT_RENDER_SIZE)
         self.add(
             ppb.Sprite(
                 image=ppb.Text(
-                    "Settings", font=self.font, color=constants.BRAND_FONT_COLOR
+                    "Settings", font=constants.font, color=constants.BRAND_FONT_COLOR
                 ),
                 size=constants.TITLE_SIZE,
                 position=ppb.Vector(0, 6),
@@ -24,7 +23,7 @@ class Scene(ppb.Scene):
             ppb.Sprite(
                 image=ppb.Text(
                     "There are no settings, hit escape to return.",
-                    font=self.font,
+                    font=constants.font,
                     color=constants.BRAND_FONT_COLOR,
                 )
             )
