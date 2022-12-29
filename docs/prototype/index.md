@@ -1,5 +1,7 @@
 # Mekanik Corral Prototype
 
+(prototype)=
+
 This section details the requirements, decisions and features of the prototype
 version of the game.
 

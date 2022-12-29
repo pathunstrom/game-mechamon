@@ -20,6 +20,7 @@ document as we explore the possibilities.
 
    prototype/index
    concerns/index
+   design/index
 
 
 Indices and tables
